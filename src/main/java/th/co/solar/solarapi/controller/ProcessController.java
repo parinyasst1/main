@@ -31,7 +31,7 @@ public class ProcessController {
 
     @GetMapping(value = "/consumerData", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, Object>> consumerData() {
-        return ResponseEntity.ok(consumerDataService.processQueue());
+        return ResponseEntity.ok(consumerDataService.processQueueTotal());
     }
 
     @GetMapping(value = "/processQueueTotal", produces = MediaType.APPLICATION_JSON_VALUE)
