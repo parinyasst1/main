@@ -33,7 +33,7 @@ public class ConsumerDataService {
 
     List<String> siteList = new ArrayList<>();
 
-    public Map<String, Object> processQueue() {
+    public Map<String, Object> processQueueTotal() {
         database = FirebaseDatabase.getInstance();
 
         refTotal = database.getReference("ParameterTotal");

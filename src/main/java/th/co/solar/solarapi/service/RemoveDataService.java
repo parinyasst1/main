@@ -23,6 +23,8 @@ public class RemoveDataService {
     DatabaseReference namePath = null;
     List<String> namePathList = new ArrayList<>();
 
+    final boolean[] isDelete = {true};
+
     public Map<String, Object> processQueue() {
         database = FirebaseDatabase.getInstance();
         namePath = database.getReference("NamePath");
@@ -44,21 +46,24 @@ public class RemoveDataService {
         namePath.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                log.info("----- RemoveDataService -----");
                 namePathList = (List<String>) dataSnapshot.getValue();
-                log.info("namePathList : {}", namePathList);
-                removeDataParameterDaily("ParameterDailyG1","G1");
-                removeDataParameterDaily("ParameterDailyG2","G2");
-                removeDataParameterDaily("ParameterDailyG3","G3");
-                removeDataParameterDaily("ParameterDailyG4","G4");
-                removeDataParameterDaily("ParameterDailyG5","G5");
-                removeDataParameterDaily("ParameterDailyG6","G6");
+                if (isDelete[0]) {
+                    log.info("namePathList : {}", namePathList);
+                    removeDataParameterDaily("ParameterDailyG1", "G1");
+                    removeDataParameterDaily("ParameterDailyG2", "G2");
+                    removeDataParameterDaily("ParameterDailyG3", "G3");
+                    removeDataParameterDaily("ParameterDailyG4", "G4");
+                    removeDataParameterDaily("ParameterDailyG5", "G5");
+                    removeDataParameterDaily("ParameterDailyG6", "G6");
 
-                removeDataParameterMonthly("ParameterMonthlyG1","G1");
-                removeDataParameterMonthly("ParameterMonthlyG2","G2");
-                removeDataParameterMonthly("ParameterMonthlyG3","G3");
-                removeDataParameterMonthly("ParameterMonthlyG4","G4");
-                removeDataParameterMonthly("ParameterMonthlyG5","G5");
-                removeDataParameterMonthly("ParameterMonthlyG6","G6");
+                    removeDataParameterMonthly("ParameterMonthlyG1", "G1");
+                    removeDataParameterMonthly("ParameterMonthlyG2", "G2");
+                    removeDataParameterMonthly("ParameterMonthlyG3", "G3");
+                    removeDataParameterMonthly("ParameterMonthlyG4", "G4");
+                    removeDataParameterMonthly("ParameterMonthlyG5", "G5");
+                    removeDataParameterMonthly("ParameterMonthlyG6", "G6");
+                }
             }
 
             @Override
