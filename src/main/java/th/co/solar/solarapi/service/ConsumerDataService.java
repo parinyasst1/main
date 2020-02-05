@@ -117,7 +117,7 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-                    log.info("key : {}", key);
+//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -145,7 +145,7 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-                    log.info("key : {}", key);
+//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -173,7 +173,7 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-                    log.info("key : {}", key);
+//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -201,7 +201,7 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-                    log.info("key : {}", key);
+//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -229,7 +229,7 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-                    log.info("key : {}", key);
+//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -257,7 +257,7 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-                    log.info("key : {}", key);
+//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -312,8 +312,8 @@ public class ConsumerDataService {
             LoadkwT = convertObjectToBigDecimal(LoadkwT_obj);
         }
 
-        log.info("gridkwT : {}", gridkwT);
-        log.info("LoadkwT : {}", LoadkwT);
+//        log.info("gridkwT : {}", gridkwT);
+//        log.info("LoadkwT : {}", LoadkwT);
 
         Object gridkwTall_obj = gridkwTall.get(site);
         if(gridkwTall_obj != null){
