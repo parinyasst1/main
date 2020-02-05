@@ -58,6 +58,8 @@ public class ConsumerDataService {
     // 3
     Map<String, BigDecimal> solartotalinputaccall = new HashMap<>();
     Map<String, BigDecimal> solartotaloutputaccall = new HashMap<>();
+    Map<String, BigDecimal> griduseall = new HashMap<>();
+    Map<String, BigDecimal> loadall = new HashMap<>();
 
     boolean[] isName = {true};
 
@@ -650,6 +652,8 @@ public class ConsumerDataService {
             log.info("persensolar_gruop : {}", persensolar_gruop);
             log.info("solartotalinputaccall : {}", solartotalinputaccall);
             log.info("solartotaloutputaccall : {}", solartotaloutputaccall);
+            log.info("griduseall : {}", griduseall);
+            log.info("loadall : {}", loadall);
 
             siteList.forEach(site -> {
                 TotalSite totalSite = new TotalSite();
@@ -688,6 +692,12 @@ public class ConsumerDataService {
                 }
                 if(solartotaloutputaccall.get(site) != null){
                     totalSite.setSolartotaloutputaccall(solartotaloutputaccall.get(site).toString());
+                }
+                if(griduseall.get(site) != null){
+                    totalSite.setGriduseall(griduseall.get(site).toString());
+                }
+                if(loadall.get(site) != null){
+                    totalSite.setLoadall(loadall.get(site).toString());
                 }
                 mapSite.put(site,totalSite);
             });
@@ -820,6 +830,8 @@ public class ConsumerDataService {
         HashMap dataMap = (HashMap) object;
         BigDecimal solartotalinputacc = BigDecimal.ZERO;
         BigDecimal solartotaloutputacc = BigDecimal.ZERO;
+        BigDecimal griduse = BigDecimal.ZERO;
+        BigDecimal load = BigDecimal.ZERO;
 
         Object solartotalinputacc_obj = dataMap.get("solartotalinputacc");
         if(solartotalinputacc_obj != null){
@@ -828,6 +840,14 @@ public class ConsumerDataService {
         Object solartotaloutputacc_obj = dataMap.get("solartotaloutputacc");
         if(solartotaloutputacc_obj != null){
             solartotaloutputacc = convertObjectToBigDecimal(solartotaloutputacc_obj);
+        }
+        Object griduse_obj = dataMap.get("griduse");
+        if(griduse_obj != null){
+            griduse = convertObjectToBigDecimal(griduse_obj);
+        }
+        Object load_obj = dataMap.get("load");
+        if(load_obj != null){
+            load = convertObjectToBigDecimal(load_obj);
         }
 
         Object solartotalinputaccall_obj = solartotalinputaccall.get(site);
@@ -846,6 +866,24 @@ public class ConsumerDataService {
             solartotaloutputaccall.put(site,solartotaloutputaccallResult);
         }else{
             solartotaloutputaccall.put(site,solartotaloutputacc);
+        }
+
+        Object griduseall_obj = griduseall.get(site);
+        if(griduseall_obj != null){
+            BigDecimal griduseall_objResult = convertObjectToBigDecimal(griduseall_obj);
+            griduseall_objResult = griduseall_objResult.add(griduse);
+            griduseall.put(site,griduseall_objResult);
+        }else{
+            griduseall.put(site,griduse);
+        }
+
+        Object loadall_obj = loadall.get(site);
+        if(loadall_obj != null){
+            BigDecimal loadallResult = convertObjectToBigDecimal(loadall_obj);
+            loadallResult = loadallResult.add(load);
+            loadall.put(site,loadallResult);
+        }else{
+            loadall.put(site,load);
         }
     }
 

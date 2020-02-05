@@ -13,5 +13,7 @@ public class TotalSite {
     private String persensolarall;
     private String solartotalinputaccall;
     private String solartotaloutputaccall;
+    private String griduseall;
+    private String loadall;
 
 }
