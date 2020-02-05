@@ -42,10 +42,10 @@ public class ConsumerDataService {
     DatabaseReference ref1g6 = null;
     DatabaseReference ref2g6 = null;
     DatabaseReference ref3g6 = null;
-
+    // 1
     Map<String, BigDecimal> gridkwTall = new HashMap<>();
     Map<String, BigDecimal> LoadkwTall = new HashMap<>();
-
+    // 2
     Map<String, BigDecimal> solartotalinputall = new HashMap<>();
     Map<String, BigDecimal> solartotaloutputall = new HashMap<>();
     Map<String, BigDecimal> persengridall = new HashMap<>();
@@ -55,6 +55,9 @@ public class ConsumerDataService {
     Map<String, Integer> persengrid_gruop = new HashMap<>();
     Map<String, Integer> persenpv_gruop = new HashMap<>();
     Map<String, Integer> persensolar_gruop = new HashMap<>();
+    // 3
+    Map<String, BigDecimal> solartotalinputaccall = new HashMap<>();
+    Map<String, BigDecimal> solartotaloutputaccall = new HashMap<>();
 
     boolean[] isName = {true};
 
@@ -71,6 +74,13 @@ public class ConsumerDataService {
     boolean[] isStart2G4 = {true};
     boolean[] isStart2G5 = {true};
     boolean[] isStart2G6 = {true};
+
+    boolean[] isStart3G1 = {true};
+    boolean[] isStart3G2 = {true};
+    boolean[] isStart3G3 = {true};
+    boolean[] isStart3G4 = {true};
+    boolean[] isStart3G5 = {true};
+    boolean[] isStart3G6 = {true};
 
     List<String> siteList = new ArrayList<>();
 
@@ -132,12 +142,10 @@ public class ConsumerDataService {
         ref1g1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                log.info("onDataChange : {}",dataSnapshot.getValue());
                 String group = "G1";
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -160,12 +168,10 @@ public class ConsumerDataService {
         ref1g2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                log.info("onDataChange : {}",dataSnapshot.getValue());
                 String group = "G2";
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -188,12 +194,10 @@ public class ConsumerDataService {
         ref1g3.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                log.info("onDataChange : {}",dataSnapshot.getValue());
                 String group = "G3";
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -216,12 +220,10 @@ public class ConsumerDataService {
         ref1g4.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                log.info("onDataChange : {}",dataSnapshot.getValue());
                 String group = "G4";
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -244,12 +246,10 @@ public class ConsumerDataService {
         ref1g5.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                log.info("onDataChange : {}",dataSnapshot.getValue());
                 String group = "G5";
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -272,12 +272,10 @@ public class ConsumerDataService {
         ref1g6.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                log.info("onDataChange : {}",dataSnapshot.getValue());
                 String group = "G6";
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData1(obj,site);
@@ -306,7 +304,6 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData2(obj,site);
@@ -333,7 +330,6 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData2(obj,site);
@@ -360,7 +356,6 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData2(obj,site);
@@ -387,7 +382,6 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData2(obj,site);
@@ -414,7 +408,6 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData2(obj,site);
@@ -441,14 +434,13 @@ public class ConsumerDataService {
                 HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
                 for(String site:siteList){
                     String key = site+group;
-//                    log.info("key : {}", key);
                     Object obj = hashMapData.get(key);
                     if(obj != null){
                         getData2(obj,site);
                     }
                 }
                 if(isStart2G6[0]) {
-                    updateTotal();
+                    getDataChange3G1();
                     isStart2G6[0] = false;
                 }
             }
@@ -460,6 +452,163 @@ public class ConsumerDataService {
         });
     }
 
+    ////////////////////////////////////// TODO getDataChange3
+
+    public void getDataChange3G1(){
+        ref3g1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String group = "G1";
+                HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
+                for(String site:siteList){
+                    String key = site+group;
+                    Object obj = hashMapData.get(key);
+                    if(obj != null){
+                        getData3(obj,site);
+                    }
+                }
+                if(isStart3G1[0]) {
+                    getDataChange3G2();
+                    isStart3G1[0] = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void getDataChange3G2(){
+        ref3g2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String group = "G2";
+                HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
+                for(String site:siteList){
+                    String key = site+group;
+                    Object obj = hashMapData.get(key);
+                    if(obj != null){
+                        getData3(obj,site);
+                    }
+                }
+                if(isStart3G2[0]) {
+                    getDataChange3G3();
+                    isStart3G2[0] = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void getDataChange3G3(){
+        ref3g3.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String group = "G3";
+                HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
+                for(String site:siteList){
+                    String key = site+group;
+                    Object obj = hashMapData.get(key);
+                    if(obj != null){
+                        getData3(obj,site);
+                    }
+                }
+                if(isStart3G3[0]) {
+                    getDataChange3G4();
+                    isStart3G3[0] = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void getDataChange3G4(){
+        ref3g4.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String group = "G4";
+                HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
+                for(String site:siteList){
+                    String key = site+group;
+                    Object obj = hashMapData.get(key);
+                    if(obj != null){
+                        getData3(obj,site);
+                    }
+                }
+                if(isStart3G4[0]) {
+                    getDataChange3G5();
+                    isStart3G4[0] = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void getDataChange3G5(){
+        ref3g5.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String group = "G5";
+                HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
+                for(String site:siteList){
+                    String key = site+group;
+                    Object obj = hashMapData.get(key);
+                    if(obj != null){
+                        getData3(obj,site);
+                    }
+                }
+                if(isStart3G5[0]) {
+                    getDataChange3G6();
+                    isStart3G5[0] = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void getDataChange3G6(){
+        ref3g6.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String group = "G6";
+                HashMap<String,HashMap> hashMapData = (HashMap<String,HashMap>) dataSnapshot.getValue();
+                for(String site:siteList){
+                    String key = site+group;
+                    Object obj = hashMapData.get(key);
+                    if(obj != null){
+                        getData3(obj,site);
+                    }
+                }
+                if(isStart3G6[0]) {
+                    updateTotal();
+                    isStart3G6[0] = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     public void updateTotal(){
         DatabaseReference refTotal = database.getReference("ParameterTotal");
@@ -475,6 +624,8 @@ public class ConsumerDataService {
             log.info("persengrid_gruop : {}", persengrid_gruop);
             log.info("persenpv_gruop : {}", persenpv_gruop);
             log.info("persensolar_gruop : {}", persensolar_gruop);
+            log.info("solartotalinputaccall : {}", solartotalinputaccall);
+            log.info("solartotaloutputaccall : {}", solartotaloutputaccall);
 
             siteList.forEach(site -> {
                 TotalSite totalSite = new TotalSite();
@@ -508,9 +659,15 @@ public class ConsumerDataService {
                     totalSite.setPersensolarall(result.toString());
                 }
                 // 3
+                if(solartotalinputaccall.get(site) != null){
+                    totalSite.setSolartotalinputaccall(solartotalinputaccall.get(site).toString());
+                }
+                if(solartotaloutputaccall.get(site) != null){
+                    totalSite.setSolartotaloutputaccall(solartotaloutputaccall.get(site).toString());
+                }
                 mapSite.put(site,totalSite);
             });
-//            log.info("mapSite : {}", mapSite);
+            log.info("mapSite : {}", mapSite);
             refTotal.setValueAsync(mapSite);
         }catch (Exception ex){
             ex.printStackTrace();
@@ -632,6 +789,39 @@ public class ConsumerDataService {
             persensolarall.put(site,persensolarall_result);
         }else{
             persensolarall.put(site,persensolar);
+        }
+    }
+
+    public void getData3(Object object, String site){
+        HashMap dataMap = (HashMap) object;
+        BigDecimal solartotalinputacc = BigDecimal.ZERO;
+        BigDecimal solartotaloutputacc = BigDecimal.ZERO;
+
+        Object solartotalinputacc_obj = dataMap.get("solartotalinputacc");
+        if(solartotalinputacc_obj != null){
+            solartotalinputacc = convertObjectToBigDecimal(solartotalinputacc_obj);
+        }
+        Object solartotaloutputacc_obj = dataMap.get("solartotaloutputacc");
+        if(solartotaloutputacc_obj != null){
+            solartotaloutputacc = convertObjectToBigDecimal(solartotaloutputacc_obj);
+        }
+
+        Object solartotalinputaccall_obj = solartotalinputaccall.get(site);
+        if(solartotalinputaccall_obj != null){
+            BigDecimal solartotalinputaccallResult = convertObjectToBigDecimal(solartotalinputaccall_obj);
+            solartotalinputaccallResult = solartotalinputaccallResult.add(solartotalinputacc);
+            solartotalinputaccall.put(site,solartotalinputaccallResult);
+        }else{
+            solartotalinputaccall.put(site,solartotalinputacc);
+        }
+
+        Object solartotaloutputaccall_obj = solartotaloutputaccall.get(site);
+        if(solartotaloutputaccall_obj != null){
+            BigDecimal solartotaloutputaccallResult = convertObjectToBigDecimal(solartotaloutputaccall_obj);
+            solartotaloutputaccallResult = solartotaloutputaccallResult.add(solartotaloutputacc);
+            solartotaloutputaccall.put(site,solartotaloutputaccallResult);
+        }else{
+            solartotaloutputaccall.put(site,solartotaloutputacc);
         }
     }
 
