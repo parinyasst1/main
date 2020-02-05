@@ -29,19 +29,9 @@ public class ProcessController {
         return ResponseEntity.ok(removeDataService.processQueue());
     }
 
-    @GetMapping(value = "/consumerData", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/sumTotal", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, Object>> consumerData() {
         return ResponseEntity.ok(consumerDataService.processQueueTotal());
-    }
-
-    @GetMapping(value = "/processQueueTotal", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<String, Object>> processQueueTotal() {
-        try {
-            return ResponseEntity.ok(consumerService.processQueueTotal());
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.ok(null);
-        }
     }
 
 }
