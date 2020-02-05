@@ -131,4 +131,12 @@ class SolarapiApplicationTests {
 
 	}
 
+	@Test
+	public void test3() {
+		log.info("{}",BigDecimal.ONE.compareTo(BigDecimal.ZERO));
+		log.info("{}",BigDecimal.ZERO.compareTo(BigDecimal.ONE));
+		log.info("{}",BigDecimal.ONE.compareTo(BigDecimal.ONE));
+	}
+
+
 }

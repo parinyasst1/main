@@ -6,4 +6,10 @@ import lombok.Data;
 public class TotalSite {
     private String gridkwTall;
     private String LoadkwTall;
+    private String solartotalinputall;
+    private String solartotaloutputall;
+    private String persengridall;
+    private String persenpvall;
+    private String persensolarall;
+
 }
