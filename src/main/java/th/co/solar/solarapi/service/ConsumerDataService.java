@@ -85,6 +85,30 @@ public class ConsumerDataService {
     List<String> siteList = new ArrayList<>();
 
     public Map<String, Object> processQueueTotal() {
+
+        boolean[] isName = {true};
+
+        isStart1G1[0] = true;
+        isStart1G2[0] = true;
+        isStart1G3[0] = true;
+        isStart1G4[0] = true;
+        isStart1G5[0] = true;
+        isStart1G6[0] = true;
+
+        isStart2G1[0] = true;
+        isStart2G2[0] = true;
+        isStart2G3[0] = true;
+        isStart2G4[0] = true;
+        isStart2G5[0] = true;
+        isStart2G6[0] = true;
+
+        isStart3G1[0] = true;
+        isStart3G2[0] = true;
+        isStart3G3[0] = true;
+        isStart3G4[0] = true;
+        isStart3G5[0] = true;
+        isStart3G6[0] = true;
+
         gridkwTall = new HashMap<>();
         LoadkwTall = new HashMap<>();
 
