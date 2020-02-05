@@ -333,8 +333,8 @@ public class ConsumerDataService {
             LoadkwTall.put(site,LoadkwT);
         }
 
-        log.info("gridkwTall : {}", gridkwTall);
-        log.info("LoadkwTall : {}", LoadkwTall);
+//        log.info("gridkwTall : {}", gridkwTall);
+//        log.info("LoadkwTall : {}", LoadkwTall);
 
     }
 
