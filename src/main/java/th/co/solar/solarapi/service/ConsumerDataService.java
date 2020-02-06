@@ -710,16 +710,22 @@ public class ConsumerDataService {
                     Integer group = persengrid_gruop.get(site);
                     BigDecimal result = persengridall.get(site).divide(new BigDecimal(group),decimalPlacesZero, RoundingMode.HALF_UP);
                     totalSite.setPersengridall(result.toString());
+                }else{
+                    totalSite.setPersengridall("0");
                 }
                 if(persenpvall.get(site) != null && persenpv_gruop.get(site) != null){
                     Integer group = persenpv_gruop.get(site);
                     BigDecimal result = persenpvall.get(site).divide(new BigDecimal(group),decimalPlacesZero, RoundingMode.HALF_UP);
                     totalSite.setPersenpvall(result.toString());
+                }else{
+                    totalSite.setPersenpvall("0");
                 }
                 if(persensolarall.get(site) != null && persensolar_gruop.get(site) != null){
                     Integer group = persensolar_gruop.get(site);
                     BigDecimal result = persensolarall.get(site).divide(new BigDecimal(group),decimalPlacesZero, RoundingMode.HALF_UP);
                     totalSite.setPersensolarall(result.toString());
+                }else{
+                    totalSite.setPersensolarall("0");
                 }
                 // 3
                 if(solartotalinputaccall.get(site) != null){
