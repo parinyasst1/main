@@ -50,10 +50,10 @@ public class QueueScheduler {
         }
     }
 
-    @Scheduled(cron = "${queue.weather-cron}", zone="Asia/Bangkok")
+    @Scheduled(cron = "${queue.weather-7day-cron}", zone="Asia/Bangkok")
     public void executeWeather() throws IOException {
         if (enable) {
-            consumerService.processQueueWeather();
+            consumerService.processQueueWeatherForecast7Days();
         }
     }
 

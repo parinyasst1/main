@@ -1162,7 +1162,7 @@ try {
 
     }
 
-    public void processQueueWeather() {
+    public void processQueueWeatherForecast7Days() {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference weatherForecast7Days = database.getReference("WeatherForecast7Days");
         log.info("Start processQueueWeather at {}", new Date());

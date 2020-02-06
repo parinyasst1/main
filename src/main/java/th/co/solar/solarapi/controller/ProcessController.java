@@ -46,5 +46,11 @@ public class ProcessController {
         return ResponseEntity.ok("OK");
     }
 
+    @GetMapping(value = "/weatherForecast7Days", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> processQueueWeatherForecast7Days() {
+        consumerService.processQueueWeatherForecast7Days();
+        return ResponseEntity.ok("OK");
+    }
+
 }
 
