@@ -12,6 +12,8 @@ queue:
   interval-cron: '0 */1 * * * *'
   remove-cron: '0 0 1 * * *'
   weather-cron: '0 0 2 * * *'
-  weather-today-cron: '0 0 8 * * *'
-  weather-3-hours-cron: '0 0 */1 * * *'
+#  weather-today-cron: '0 0 8 * * *'
+  weather-today-cron: '0 */5 * * * *'
+#  weather-3-hours-cron: '0 0 */1 * * *'
+  weather-3-hours-cron: '0 */5 * * * *'
   enable: true

@@ -88,6 +88,25 @@ public class ConsumerDataService {
 
     public Map<String, Object> processQueueTotal() {
 
+        // 1
+        gridkwTall = new HashMap<>();
+        LoadkwTall = new HashMap<>();
+        // 2
+        solartotalinputall = new HashMap<>();
+        solartotaloutputall = new HashMap<>();
+        persengridall = new HashMap<>();
+        persenpvall = new HashMap<>();
+        persensolarall = new HashMap<>();
+
+        persengrid_gruop = new HashMap<>();
+        persenpv_gruop = new HashMap<>();
+        persensolar_gruop = new HashMap<>();
+        // 3
+        solartotalinputaccall = new HashMap<>();
+        solartotaloutputaccall = new HashMap<>();
+        griduseall = new HashMap<>();
+        loadall = new HashMap<>();
+
         boolean[] isName = {true};
 
         isStart1G1[0] = true;
