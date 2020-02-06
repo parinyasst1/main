@@ -674,6 +674,9 @@ public class ConsumerDataService {
             log.info("griduseall : {}", griduseall);
             log.info("loadall : {}", loadall);
 
+            int decimalPlacesZero = 0;
+            int decimalPlacesOne = 1;
+
             siteList.forEach(site -> {
                 TotalSite totalSite = new TotalSite();
                 // 1
@@ -692,31 +695,35 @@ public class ConsumerDataService {
                 }
                 if(persengridall.get(site) != null && persengrid_gruop.get(site) != null){
                     Integer group = persengrid_gruop.get(site);
-                    BigDecimal result = persengridall.get(site).divide(new BigDecimal(group),1, RoundingMode.HALF_UP);
+                    BigDecimal result = persengridall.get(site).divide(new BigDecimal(group),decimalPlacesZero, RoundingMode.HALF_UP);
                     totalSite.setPersengridall(result.toString());
                 }
                 if(persenpvall.get(site) != null && persenpv_gruop.get(site) != null){
                     Integer group = persenpv_gruop.get(site);
-                    BigDecimal result = persenpvall.get(site).divide(new BigDecimal(group),1, RoundingMode.HALF_UP);
+                    BigDecimal result = persenpvall.get(site).divide(new BigDecimal(group),decimalPlacesZero, RoundingMode.HALF_UP);
                     totalSite.setPersenpvall(result.toString());
                 }
                 if(persensolarall.get(site) != null && persensolar_gruop.get(site) != null){
                     Integer group = persensolar_gruop.get(site);
-                    BigDecimal result = persensolarall.get(site).divide(new BigDecimal(group),1, RoundingMode.HALF_UP);
+                    BigDecimal result = persensolarall.get(site).divide(new BigDecimal(group),decimalPlacesZero, RoundingMode.HALF_UP);
                     totalSite.setPersensolarall(result.toString());
                 }
                 // 3
                 if(solartotalinputaccall.get(site) != null){
-                    totalSite.setSolartotalinputaccall(solartotalinputaccall.get(site).toString());
+                    BigDecimal result = solartotalinputaccall.get(site).setScale(decimalPlacesZero, BigDecimal.ROUND_HALF_UP);
+                    totalSite.setSolartotalinputaccall(result.toString());
                 }
                 if(solartotaloutputaccall.get(site) != null){
-                    totalSite.setSolartotaloutputaccall(solartotaloutputaccall.get(site).toString());
+                    BigDecimal result = solartotaloutputaccall.get(site).setScale(decimalPlacesZero, BigDecimal.ROUND_HALF_UP);
+                    totalSite.setSolartotaloutputaccall(result.toString());
                 }
                 if(griduseall.get(site) != null){
-                    totalSite.setGriduseall(griduseall.get(site).toString());
+                    BigDecimal result = griduseall.get(site).setScale(decimalPlacesZero, BigDecimal.ROUND_HALF_UP);
+                    totalSite.setGriduseall(result.toString());
                 }
                 if(loadall.get(site) != null){
-                    totalSite.setLoadall(loadall.get(site).toString());
+                    BigDecimal result = loadall.get(site).setScale(decimalPlacesZero, BigDecimal.ROUND_HALF_UP);
+                    totalSite.setLoadall(result.toString());
                 }
                 mapSite.put(site,totalSite);
             });
