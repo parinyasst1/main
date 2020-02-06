@@ -166,6 +166,19 @@ public class ConsumerDataService {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(isName[0]) {
                     siteList = (List<String>) dataSnapshot.getValue();
+                    for(String site:siteList){
+                        gridkwTall.put(site,BigDecimal.ZERO);
+                        LoadkwTall.put(site,BigDecimal.ZERO);
+                        solartotalinputall.put(site,BigDecimal.ZERO);
+                        solartotaloutputall.put(site,BigDecimal.ZERO);
+                        persengridall.put(site,BigDecimal.ZERO);
+                        persenpvall.put(site,BigDecimal.ZERO);
+                        persensolarall.put(site,BigDecimal.ZERO);
+                        solartotalinputaccall.put(site,BigDecimal.ZERO);
+                        solartotaloutputaccall.put(site,BigDecimal.ZERO);
+                        griduseall.put(site,BigDecimal.ZERO);
+                        loadall.put(site,BigDecimal.ZERO);
+                    }
                     log.info("siteList : {}", siteList);
                     getDataChange1G1();
                     isName[0] = false;
