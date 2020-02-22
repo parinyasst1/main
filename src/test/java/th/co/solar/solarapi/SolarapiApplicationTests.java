@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -51,6 +52,15 @@ class SolarapiApplicationTests {
 		Object object = -4.1;
 		BigDecimal s = convertObjectToBigDecimal(object);
 		log.info(s.toString());
+	}
+
+	@Test
+	public void test4(){
+		Map<String, BigDecimal> map1 = new HashMap<>();
+		map1.put("1",BigDecimal.TEN);
+		log.info("1 : {}",map1);
+		map1.put("1", map1.get("1").add(BigDecimal.ONE));
+		log.info("2 : {}",map1);
 	}
 
 	public BigDecimal convertObjectToBigDecimal(Object object){

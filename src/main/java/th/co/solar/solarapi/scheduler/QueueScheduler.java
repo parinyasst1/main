@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import th.co.solar.solarapi.service.ConsumerDataService;
-import th.co.solar.solarapi.service.ConsumerService;
-import th.co.solar.solarapi.service.RemoveDataService;
+import th.co.solar.solarapi.service.*;
 
 import java.io.IOException;
 import java.util.Date;
@@ -25,6 +23,48 @@ public class QueueScheduler {
     private RemoveDataService removeDataService;
     @Autowired
     private ConsumerDataService consumerDataService;
+    @Autowired
+    private ParameterDailyService parameterDailyService;
+    @Autowired
+    private ParameterMonthlyService parameterMonthlyService;
+    @Autowired
+    private ParameterYearlyService parameterYearlyService;
+
+    @Scheduled(cron = "${queue.daily-total-cron}", zone="Asia/Bangkok")
+    public void dailyTotal() {
+        if (enable) {
+            try {
+                parameterDailyService.processQueueTotal();
+            } catch (Exception e) {
+                log.error(e.getMessage());
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Scheduled(cron = "${queue.monthly-total-cron}", zone="Asia/Bangkok")
+    public void monthlyTotal() {
+        if (enable) {
+            try {
+                parameterMonthlyService.processQueueTotal();
+            } catch (Exception e) {
+                log.error(e.getMessage());
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Scheduled(cron = "${queue.yearly-total-cron}", zone="Asia/Bangkok")
+    public void yearlyTotal() {
+        if (enable) {
+            try {
+                parameterYearlyService.processQueueTotal();
+            } catch (Exception e) {
+                log.error(e.getMessage());
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Scheduled(cron = "${queue.interval-cron}", zone="Asia/Bangkok")
     public void execute() {

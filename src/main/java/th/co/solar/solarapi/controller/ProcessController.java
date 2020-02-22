@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import th.co.solar.solarapi.service.ConsumerDataService;
-import th.co.solar.solarapi.service.ConsumerService;
-import th.co.solar.solarapi.service.RemoveDataService;
+import th.co.solar.solarapi.service.*;
 
 import java.util.Map;
 
@@ -23,6 +21,12 @@ public class ProcessController {
     ConsumerDataService consumerDataService;
     @Autowired
     RemoveDataService removeDataService;
+    @Autowired
+    ParameterDailyService parameterDailyService;
+    @Autowired
+    ParameterMonthlyService parameterMonthlyService;
+    @Autowired
+    ParameterYearlyService parameterYearlyService;
 
     @GetMapping(value = "/removeData", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, Object>> removeDataService() {
@@ -32,6 +36,21 @@ public class ProcessController {
     @GetMapping(value = "/sumTotal", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, Object>> consumerData() {
         return ResponseEntity.ok(consumerDataService.processQueueTotal());
+    }
+
+    @GetMapping(value = "/sumDailyTotal", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> consumerDataDaily() {
+        return ResponseEntity.ok(parameterDailyService.processQueueTotal());
+    }
+
+    @GetMapping(value = "/sumMonthlyTotal", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> consumerDataMonthly() {
+        return ResponseEntity.ok(parameterMonthlyService.processQueueTotal());
+    }
+
+    @GetMapping(value = "/sumYearlyTotal", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> consumerDataYearly() {
+        return ResponseEntity.ok(parameterYearlyService.processQueueTotal());
     }
 
     @GetMapping(value = "/weatherToday", produces = MediaType.APPLICATION_JSON_VALUE)
